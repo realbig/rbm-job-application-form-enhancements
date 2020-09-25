@@ -3,7 +3,7 @@
  * Plugin Name: RBM Job Application Form Enhancements
  * Plugin URI: https://github.com/realbig/rbm-job-application-form-enhancements
  * Description: Auto-populates some data in the Job Application form
- * Version: 0.1.0
+ * Version: 1.0.0
  * Text Domain: rbm-job-application-form-enhancements
  * Author: Real Big Marketing
  * Author URI: https://realbigmarketing.com/
@@ -20,19 +20,19 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
     /**
      * Main RBM_Job_Application_Form_Enhancements class
      *
-     * @since      {{VERSION}}
+     * @since      1.0.0
      */
     final class RBM_Job_Application_Form_Enhancements {
         
         /**
          * @var          array $plugin_data Holds Plugin Header Info
-         * @since        {{VERSION}}
+         * @since        1.0.0
          */
         public $plugin_data;
         
         /**
          * @var          array $admin_errors Stores all our Admin Errors to fire at once
-         * @since        {{VERSION}}
+         * @since        1.0.0
          */
         private $admin_errors = array();
 
@@ -40,7 +40,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * Get active instance
          *
          * @access     public
-         * @since      {{VERSION}}
+         * @since      1.0.0
          * @return     object self::$instance The one true RBM_Job_Application_Form_Enhancements
          */
         public static function instance() {
@@ -85,7 +85,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * Setup plugin constants
          *
          * @access     private
-         * @since      {{VERSION}}
+         * @since      1.0.0
          * @return     void
          */
         private function setup_constants() {
@@ -124,7 +124,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * Internationalization
          *
          * @access     private 
-         * @since      {{VERSION}}
+         * @since      1.0.0
          * @return     void
          */
         private function load_textdomain() {
@@ -161,7 +161,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * Include different aspects of the Plugin
          * 
          * @access     private
-         * @since      {{VERSION}}
+         * @since      1.0.0
          * @return     void
          */
         private function require_necessities() {
@@ -178,7 +178,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * @param	array   $field_values An array of dynamic population parameter keys with their corresponding values to be populated
          *                                                                 * 
          * @access  public
-         * @since	{{VERSION}}
+         * @since	1.0.0
          * @return	array   Modified Form
          */
         public function populate_jobs_list( $form, $ajax, $field_values ) {
@@ -235,7 +235,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * Show admin errors.
          * 
          * @access     public
-         * @since      {{VERSION}}
+         * @since      1.0.0
          * @return     HTML
          */
         public function admin_errors() {
@@ -254,7 +254,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
          * Register our CSS/JS to use later
          * 
          * @access     public
-         * @since      {{VERSION}}
+         * @since      1.0.0
          * @return     void
          */
         public function register_scripts() {
@@ -311,7 +311,7 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
  * The main function responsible for returning the one true RBM_Job_Application_Form_Enhancements
  * instance to functions everywhere
  *
- * @since      {{VERSION}}
+ * @since      1.0.0
  * @return     \RBM_Job_Application_Form_Enhancements The one true RBM_Job_Application_Form_Enhancements
  */
 add_action( 'plugins_loaded', 'rbm_job_application_form_enhancements_load' );
