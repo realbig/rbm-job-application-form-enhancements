@@ -3,7 +3,7 @@
  * Plugin Name: RBM Job Application Form Enhancements
  * Plugin URI: https://github.com/realbig/rbm-job-application-form-enhancements
  * Description: Auto-populates some data in the Job Application form
- * Version: 1.0.0
+ * Version: 1.0.1
  * Text Domain: rbm-job-application-form-enhancements
  * Author: Real Big Marketing
  * Author URI: https://realbigmarketing.com/
