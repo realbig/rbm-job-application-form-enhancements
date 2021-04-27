@@ -194,32 +194,46 @@ if ( ! class_exists( 'RBM_Job_Application_Form_Enhancements' ) ) {
                         'posts_per_page' => -1,
                         'orderby' => 'title',
                         'order' => 'ASC',
-                        'status' => 'publish',
+                        'post_status' => 'publish',
                     ) );
 
-                    if ( ! $jobs->have_posts() ) break;
+                    if ( $jobs->have_posts() ) {
 
-                    // Hyphens to emdashes in Titles
-                    remove_filter( 'the_title', 'wptexturize' );
-                    
-                    $field->choices = array();
-
-                    while ( $jobs->have_posts() ) : $jobs->the_post();
-
+                        // Hyphens to emdashes in Titles
+                        remove_filter( 'the_title', 'wptexturize' );
                         
+                        $field->choices = array();
+
+                        while ( $jobs->have_posts() ) : $jobs->the_post();
+
+                            
+                            $field->choices[] = array(
+                                'text' => get_the_title(),
+                                'value' => get_the_title(),
+                                'isSelected' => ( isset( $_GET['job'] ) && urldecode( $_GET['job'] ) == get_the_title() ) ? true : false,
+                                'price' => '',
+                            );
+
+
+                        endwhile;
+
+                        add_filter( 'the_title', 'wptexturize' );
+                        
+                        wp_reset_postdata();
+
+                    }
+                    else {
+
+                        $field->choices = array();
+
                         $field->choices[] = array(
-                            'text' => get_the_title(),
-                            'value' => get_the_title(),
-                            'isSelected' => ( isset( $_GET['job'] ) && urldecode( $_GET['job'] ) == get_the_title() ) ? true : false,
+                            'text' => __( 'No job openings currently available', 'rbm-job-application-form-enhancements', ),
+                            'value' => '',
+                            'isSelected' => true,
                             'price' => '',
                         );
 
-
-                    endwhile;
-
-                    add_filter( 'the_title', 'wptexturize' );
-                    
-                    wp_reset_postdata();
+                    }
 
                     break;
 
